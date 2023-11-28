@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style color: #0202020;>
+        
+        p{
+            text-align: center;
+            margin-top:20%;
+            font-size:300%;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.478);
+        }
+        p:hover{
+            color:rgb(166, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    
+    <p>Bank Account Management</p>
+</body>
+<script>
+    function BankAccount(accountNumber,name,type,balance){
+    this.AccountNumber=accountNumber;
+    this.Name=name;
+    this.Type=type;
+    this.Balance=balance;
+    this.Active=true;
+//-----------------------------Function of Deposit-------------------------//
+    this.deposit=function(amount){
+        if(amount>0){
+            this.Balance+=amount;
+            console.log("You have Sucessfully Deposit",amount);
+        }
+        else{
+            console.log("Invalid amount for Deposit");
+        }
+        //this.Balance+=amount
+    };
+//----------------------------Function of Withdraw------------------------//
+    this.withdraw=function(amount){
+        if(amount==0){
+            //console.log("");
+        }
+        else if(this.Balance>=amount){
+        this.Balance-=amount
+        console.log("You have sucessfully withdrawl",amount)
+        }
+        else{
+            console.log("You have insufficient balance", amount)
+        }
+    }
+//---------------------------Function of CheckBalance-----------------------//
+    this.checkBalance=function(){
+        console.log(`Account Number: ${this.AccountNumber}, Availabel Balance: ${this.Balance}`);
+    }
+//---------------------------Function of Active Acc.------------------------//
+    this.isActive=function(){
+        if(this.Balance>0){
+            console.log("Active :",this.Active=true);
+        }
+        else{
+            console.log("Active :",this.Active=false);
+        }
+    }
+//--------------------------Function of TotalBalance------------------------//
+    this.getTotalBalance=function(accounts){
+        console.log("Your Total Balance -:",this.Balance);
+    }
+};
+//---------------------------Person 1 Account-------------------------------//
+let acc1= new BankAccount(1234567898564785,"Raghvendra","Saving",1000)
+console.log("Account Status of 1st person -:",acc1);
+acc1.deposit(500);
+acc1.withdraw(300);
+acc1.checkBalance();
+acc1.isActive();
+acc1.getTotalBalance();
+console.log("---------------------------------------------------------------------------------------------------");
+//--------------------------Person 2 Account--------------------------------//
+let acc2= new BankAccount(3216549875846985,"Raja","Saving",1000)
+console.log("Account Status of 2nd person -:",acc2);
+acc2.deposit(200);
+acc2.withdraw(500);
+acc2.checkBalance();
+acc2.isActive();
+acc2.getTotalBalance();
+console.log("---------------------------------------------------------------------------------------------------");
+let acc3= new BankAccount(3216549875874965,"Aakash","Saving",1000)
+console.log("Account Status of 3rd person -:",acc3);
+acc3.deposit(100);
+acc3.withdraw(200);
+acc3.checkBalance();
+acc3.isActive();
+acc3.getTotalBalance();
+</script>
+</html>

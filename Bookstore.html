@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        text-align: center;
+        margin: auto;
+        font-size: xx-large;
+        background-color: rgb(156, 161, 161);
+
+    }
+
+    #books{
+        /* border: 2px solid green; */
+        height: 820px;
+        display: flex;
+        justify-content: space-around;
+        background-color: rgb(156, 161, 161);
+        
+    }
+
+    .book{
+        /* border: 2px solid rgb(27, 29, 27); */
+        height: 500px;
+        width: 49%;
+        margin-top: 50px;
+    }
+    .book > img{
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<body>
+
+    <p>ONLINE BOOKSTORE</p>
+
+    <div id="books">
+        <div class="book">
+            <img src="https://ericpartaker.com/file/2023/09/blaz-photo-zMRLZh40kms-unsplash-min-860x645.jpg" alt="">
+        </div>
+        <div class="book">
+            <img src="https://en.pimg.jp/046/829/281/1/46829281.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function CreateAuthor(name,birthYear,nationality){
+        this.Name=name;
+        this.Birthyear=birthYear;
+        this.Nationality=nationality;
+    };
+
+     function CreateBook(title,author,genre,price){
+        this.Title=title;
+        this.Author=author;
+        this.Genre=genre;
+        this.Price=price;
+
+
+        this.getBookInfo=function(){
+            console.log("Title",this.Title);
+            console.log("Author",this.Author);
+            console.log("Genre",this.Genre);
+            console.log("Price",this.Price);
+            console.log("-----------------------------------------");
+        };
+     };
+
+     let Author1=new CreateAuthor("Robert Kiyosaki",1947,"American")
+     let Author2=new CreateAuthor("Kiran Desai",1971,"India")
+
+
+     let Book1 = new CreateBook("Rich Dad Poor Dad",Author1 ,"Personal finance and business education " , "499rs")
+     let Book2 = new CreateBook("The Inheritance of Loss",Author2 ,"magic realism and socio-cultural realism" , "399" )
+     Book1.getBookInfo();
+     Book2.getBookInfo();
+
+
+</script>
+</html>
